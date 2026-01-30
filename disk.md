@@ -101,3 +101,10 @@ umount /mnt/vda* /mnt/iso
 | 44  | lvm   | Linux LVM        |
 
 ---
+
+get uuid
+```
+lsblk -f /dev/sdX
+blkid
+ls -l /dev/disk/by-uuid/
+```
