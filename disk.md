@@ -47,8 +47,9 @@ Format
 apt install dosfstools -y
 mkfs.vfat -F 32 /dev/vda1  # for uefi partition
 mkfs.ext4 /dev/vda2  # for root partition
-sudo blockdev --rereadpt /dev/vdb  # inform system fo flush partiton table, can also type `sudo partx -u /dev/vdb`
-echo 1 > /sys/block/sdb/device/rescan  #  if the above code don't work, try this
+sudo blockdev --rereadpt /dev/vdb  # inform system fo flush partiton table, it will fail when partition is mountted 
+sudo partx -u /dev/vdb #  can also type this to flush partiton table, it's useful when partition is mountted
+echo 1 > /sys/block/sdb/device/rescan  #  if the above code don't work, try this, it inform system fo flush partiton table size
 ```
 
 Mount
