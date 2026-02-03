@@ -46,7 +46,7 @@ done
 ```
 
 # Configure auto decrypt hard drive when booting via ssh.
-make sure /etc/crypttab config is `none` rather than `/root/luks.key`
+make sure /etc/crypttab config keyfile is `none` rather than `/root/luks.key`
 ```bash
 apt install dropbear-initramfs busybox -y
 echo id_rsa.pub_content >> /etc/dropbear/initramfs/authorized_keys
