@@ -11,7 +11,7 @@ ssh-keygen -y -f "\path\to\your\id_rsa" > "\path\to\your\id_rsa.pub"
 Check
 ```bash
 ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub  # ED25519 key fingerprint, should be same as infromed when first login
-# same as `ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key`
+# same as run `ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key`
 
 # they should be same as %userprofile%/.ssh/known_hosts
 cat /etc/ssh/ssh_host_ed25519_key.pub
