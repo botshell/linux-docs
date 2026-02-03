@@ -2,7 +2,8 @@
 dd if=/dev/urandom of=/root/luks.key bs=4096 count=1
 chmod 0400 /root/luks.key
 chattr +i /root/luks.key  # chattr -i /root/luks.key
-# if `rm /root/luks.key` then `update-initramfs -u`, grub will display an error that non-existing keyfile /cryptroot/keyfiles/sdX3_crypt.key
+# if `rm /root/luks.key` then `update-initramfs -u`, grub will display an error
+# that non-existing keyfile /cryptroot/keyfiles/sdX3_crypt.key
 
 target="/dev/sda3"
 UUID=$(blkid -s UUID -o value "$target")
