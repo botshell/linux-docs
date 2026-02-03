@@ -19,7 +19,7 @@ cat /etc/ssh/ssh_host_rsa_key.pub
 cat /etc/ssh/ssh_host_ecdsa_key.pub
 ```
 
-# the Public key's Fingerprint: SHA256 calculate as
+the Public key's Fingerprint: SHA256 calculate as
 ```bash
 # apt install xxd -y
 awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub \
