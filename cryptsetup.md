@@ -31,3 +31,14 @@ cryptsetup luksDump "$target"
 cryptsetup luksOpen "$target" test --test-passphrase
 cryptsetup luksOpen "$target" test --key-file /root/luks.key --test-passphrase
 ```
+
+```bash
+for i in 0 1 2 3 4 5 6 7; do
+  echo "Testing slot $i"
+  cryptsetup luksOpen "$target" test \
+    --key-file /root/luks.key \
+    --key-slot $i \
+    --test-passphrase && echo "-> slot $i works"
+done
+
+```
