@@ -8,6 +8,16 @@ Generate id_rsa.pub from id_rsa in powershell
 ssh-keygen -y -f "\path\to\your\id_rsa" > "\path\to\your\id_rsa.pub"
 # cat "\path\to\your\id_rsa.pub"  # check if rsa.pub generated
 ```
+Check
+```bash
+ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub  # ED25519 key fingerprint, should be same as infromed when first login
+# same as `ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key`
+
+# they should be same as %userprofile%/.ssh/known_hosts
+cat /etc/ssh/ssh_host_ed25519_key.pub
+cat /etc/ssh/ssh_host_rsa_key.pub
+cat /etc/ssh/ssh_host_ecdsa_key.pub
+```
 
 login
 ```powershell
