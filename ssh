@@ -1,0 +1,9 @@
+```powershell
+ssh-keygen -y -f "\path\to\your\id_rsa" > "\path\to\your\id_rsa.pub"
+```
+
+login
+```powershell
+ssh -i "\path\to\your\id_rsa" -p port username@ip
+# ssh -vvv -i "\path\to\your\id_rsa" -p port username@ip  # debug mode
+```
