@@ -1,4 +1,5 @@
-Configure auto decrypt hard drive when booting.
+# Configure auto decrypt hard drive when booting in local test.
+The secret key is exposed in an unencrypted boot partition.
 ```bash
 target="/dev/sda3"
 
@@ -44,8 +45,23 @@ done
 # cryptsetup luksKillSlot "$target" 2  # delete slot 2
 ```
 
+# Configure auto decrypt hard drive when booting via ssh.
 ```bash
-ssh -i "\path\to\your\id_rsa" -p port root@ip
+apt install dropbear-initramfs busybox -y
+echo id_rsa.pub_content >> /etc/dropbear/initramfs/authorized_keys
+update-initramfs -u
+# reboot
 
+# disabled this way.
+# apt purge dropbear-initramfs
+# update-initramfs -u
+```
+
+ssh login
+```powershell
+ssh -i "\path\to\your\id_rsa" -p 22 root@ip
+```
+
+```bash
 cryptroot-unlock  # Enter any existing passphrase
 ```
