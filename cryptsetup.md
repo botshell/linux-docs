@@ -83,6 +83,10 @@ echo id_rsa.pub_content >> /etc/dropbear/initramfs/authorized_keys
 # chmod 700 /etc/dropbear/initramfs
 # chmod 600 /etc/dropbear/initramfs/authorized_keys
 
+# No need to edit /etc/initramfs-tools/initramfs.conf for DHCP:
+# initramfs automatically configures network interfaces via DHCP during early boot,
+# allowing Dropbear SSH access before the root filesystem is unlocked.
+
 update-initramfs -u
 
 dropbearkey -y -f /etc/dropbear/initramfs/dropbear_ed25519_host_key  # get the Public key and Public key's Fingerprint: SHA256
