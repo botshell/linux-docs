@@ -61,9 +61,6 @@ dropbearkey -y -f /etc/dropbear/initramfs/dropbear_ed25519_host_key  # get the P
 # ssh-keygen -lf dropbear_ed25519_host_key.openssh  # can also this way to get Public key's Fingerprint: SHA256
 # ssh-keygen -lf /etc/dropbear/initramfs/dropbear_ed25519_host_key.pub  # can also this way to get Public key's Fingerprint: SHA256
 
-
-
-
 # reboot
 
 # disabled this way.
