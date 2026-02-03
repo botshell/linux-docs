@@ -62,11 +62,25 @@ dropbearkey -y -f /etc/dropbear/initramfs/dropbear_ed25519_host_key  # get the P
 # ssh-keygen -lf /etc/dropbear/initramfs/dropbear_ed25519_host_key.pub  # can also this way to get Public key's Fingerprint: SHA256
 
 
+
+
 # reboot
 
 # disabled this way.
 # apt purge dropbear-initramfs
 # update-initramfs -u
+```
+
+```bash
+# the Public key's Fingerprint: SHA256 calculate as
+apt install xxd -y
+awk '{print $2}' /etc/dropbear/initramfs/dropbear_ed25519_host_key.pub \
+  | base64 -d \
+  | sha256sum \
+  | awk '{print $1}' \
+  | xxd -r -p \
+  | base64
+
 ```
 
 ssh login
