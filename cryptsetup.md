@@ -41,4 +41,5 @@ for i in 0 1 2 3 4 5 6 7; do
     --test-passphrase && echo "-> slot $i works"
 done
 
+# cryptsetup luksKillSlot /dev/sda3 2  # delete slot 2
 ```
