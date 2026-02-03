@@ -54,6 +54,14 @@ echo id_rsa.pub_content >> /etc/dropbear/initramfs/authorized_keys
 # chmod 600 /etc/dropbear/initramfs/authorized_keys
 
 update-initramfs -u
+
+dropbearkey -y -f /etc/dropbear/initramfs/dropbear_ed25519_host_key  # get the Public key and Public key's Fingerprint: SHA256
+# cat /etc/dropbear/initramfs/dropbear_ed25519_host_key.pub  # can also this way to get Public key
+# dropbearconvert dropbear openssh /etc/dropbear/initramfs/dropbear_ed25519_host_key dropbear_ed25519_host_key.openssh
+# ssh-keygen -lf dropbear_ed25519_host_key.openssh  # can also this way to get Public key's Fingerprint: SHA256
+# ssh-keygen -lf /etc/dropbear/initramfs/dropbear_ed25519_host_key.pub  # can also this way to get Public key's Fingerprint: SHA256
+
+
 # reboot
 
 # disabled this way.
