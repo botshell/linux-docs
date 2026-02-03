@@ -22,5 +22,6 @@ cat /etc/ssh/ssh_host_ecdsa_key.pub
 login
 ```powershell
 ssh -i "\path\to\your\id_rsa" -p port username@ip
+# ssh-keygen -R ip  # delete old records when changed
 # ssh -vvv -i "\path\to\your\id_rsa" -p port username@ip  # debug mode
 ```
