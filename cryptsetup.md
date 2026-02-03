@@ -43,3 +43,9 @@ done
 
 # cryptsetup luksKillSlot "$target" 2  # delete slot 2
 ```
+
+```bash
+ssh -i "\path\to\your\id_rsa" -p port root@ip
+
+cryptroot-unlock  # Enter any existing passphrase
+```
