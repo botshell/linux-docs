@@ -7,7 +7,7 @@ chattr +i /root/luks.key  # chattr -i /root/luks.key
 
 target="/dev/sda3"
 UUID=$(blkid -s UUID -o value "$target")
-cryptsetup luksAddKey "target" /root/luks.key  # Enter any existing passphrase
+cryptsetup luksAddKey "$target" /root/luks.key  # Enter any existing passphrase
 sed -i "s|\(UUID=$UUID[[:space:]]\+\)none|\1/root/luks.key|" /etc/crypttab
 # cat /etc/crypttab  # debug
 
