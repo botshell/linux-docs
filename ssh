@@ -1,5 +1,7 @@
+Generate id_rsa.pub from id_rsa in powershell
 ```powershell
 ssh-keygen -y -f "\path\to\your\id_rsa" > "\path\to\your\id_rsa.pub"
+# cat "\path\to\your\id_rsa.pub"  # check if rsa.pub generated
 ```
 
 login
