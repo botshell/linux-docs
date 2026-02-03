@@ -23,3 +23,11 @@ echo 'UMASK=0077' >> /etc/initramfs-tools/initramfs.conf
 update-initramfs -u
 # reboot
 ```
+
+```bash
+target="/dev/sda3"
+cryptsetup luksDump "$target"
+
+cryptsetup luksOpen "$target" test --test-passphrase
+cryptsetup luksOpen "$target" test --key-file /root/luks.key --test-passphrase
+```
