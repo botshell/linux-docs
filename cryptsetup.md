@@ -1,3 +1,4 @@
+Configure auto decrypt hard drive when booting.
 ```bash
 target="/dev/sda3"
 
