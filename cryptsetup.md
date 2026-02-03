@@ -57,8 +57,12 @@ update-initramfs -u
 
 dropbearkey -y -f /etc/dropbear/initramfs/dropbear_ed25519_host_key  # get the Public key and Public key's Fingerprint: SHA256
 # cat /etc/dropbear/initramfs/dropbear_ed25519_host_key.pub  # can also this way to get Public key
+
+# Way 1 to get Public key's Fingerprint
 # dropbearconvert dropbear openssh /etc/dropbear/initramfs/dropbear_ed25519_host_key dropbear_ed25519_host_key.openssh
 # ssh-keygen -lf dropbear_ed25519_host_key.openssh  # can also this way to get Public key's Fingerprint: SHA256
+
+# Way 2 to get Public key's Fingerprint
 # ssh-keygen -lf /etc/dropbear/initramfs/dropbear_ed25519_host_key.pub  # can also this way to get Public key's Fingerprint: SHA256
 
 # reboot
