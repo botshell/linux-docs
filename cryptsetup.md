@@ -45,9 +45,39 @@ done
 # cryptsetup luksKillSlot "$target" 2  # delete slot 2
 ```
 
-# Configure auto decrypt hard drive when booting via ssh.
-make sure /etc/crypttab config keyfile is `none` rather than `/root/luks.key`
+# Auto-unlock encrypted root filesystem via SSH (initramfs)
 ```bash
+# SECURITY NOTE (IMPORTANT):
+# ------------------------------------------------------------
+# This setup IMPROVES security but is NOT absolutely secure.
+#
+# - Disk data is protected AT REST (snapshots, offline access).
+# - However, the VPS provider / hypervisor can still:
+#   * Read guest memory
+#   * Inject code into initramfs or kernel
+#   * Replace boot components before execution
+#
+# This method protects against:
+#   ✔ Lost disks
+#   ✔ Snapshot inspection
+#   ✔ Offline data extraction
+#
+# This method does NOT protect against:
+#   ✘ Malicious hypervisor
+#   ✘ Host-level memory inspection
+#   ✘ Pre-boot tampering by provider
+#
+# Trust model:
+#   - You trust the VPS provider NOT to actively attack you.
+#   - This is a HARDENING measure, not a zero-trust solution.
+#
+# ============================================================
+
+# Ensure /etc/crypttab uses 'none' for keyfile rather than `/root/luks.key`
+# (Do NOT embed keyfile into initramfs)
+# Example:
+# sdX3_crypt UUID=xxxx-xxxx-xxxx none luks,discard
+
 apt install dropbear-initramfs busybox -y
 echo id_rsa.pub_content >> /etc/dropbear/initramfs/authorized_keys
 # chmod 700 /etc/dropbear/initramfs
