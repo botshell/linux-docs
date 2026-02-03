@@ -1,3 +1,8 @@
+```bash
+mkdir -p ~/.ssh
+echo id_rsa_content >> ~/.ssh/authorized_keys
+```
+
 Generate id_rsa.pub from id_rsa in powershell
 ```powershell
 ssh-keygen -y -f "\path\to\your\id_rsa" > "\path\to\your\id_rsa.pub"
