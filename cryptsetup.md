@@ -11,6 +11,10 @@ sed -i "s|\(UUID=$UUID[[:space:]]\+\)none|\1/root/luks.key|" /etc/crypttab
 grep -qxF 'KEYFILE_PATTERN=/root/luks.key' /etc/cryptsetup-initramfs/conf-hook || \
 echo 'KEYFILE_PATTERN=/root/luks.key' >> /etc/cryptsetup-initramfs/conf-hook
 
+grep -q '^UMASK=' /etc/initramfs-tools/initramfs.conf && \
+sed -i 's/^UMASK=.*/UMASK=0077/' /etc/initramfs-tools/initramfs.conf || \
+echo 'UMASK=0077' >> /etc/initramfs-tools/initramfs.conf
+
 update-initramfs -u
 # reboot
 ```
