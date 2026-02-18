@@ -37,3 +37,8 @@ ssh -i "\path\to\your\id_rsa" -p port username@ip
 # ssh-keygen -R ip  # delete old records when changed
 # ssh -vvv -i "\path\to\your\id_rsa" -p port username@ip  # debug mode
 ```
+
+If remote host identification changed.
+```powershell
+ssh-keygen -R ip_address
+```
