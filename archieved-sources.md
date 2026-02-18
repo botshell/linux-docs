@@ -1,4 +1,5 @@
-Sometimes the rescue-mode-os is too outdated to run `apt update`, so change the apt source to the archieved edition (not the newest, as its architecture may not be applicable ).
+Sometimes the rescue-mode-os is too outdated to run `apt update` or `apt install packages` due to outdated signature, so change the apt source to the archieved edition (not the newest, as its architecture may not be applicable ).  
+However, many components are missing which can cause scripts to fail. So, just for temporary rescue-mode-use.
 ```sh
 cat /etc/debian_version
 ```
