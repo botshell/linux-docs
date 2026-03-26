@@ -28,3 +28,7 @@ tab_width = 4
 [*.php]
 indent_style = space
 indent_size = 4
+
+[*.{html,js,css,json}]
+indent_style = space
+indent_size = 2
