@@ -12,4 +12,4 @@
 文件夹用 - 而不是 _
 
 linux 系统文件夹命名 纯小写，或者加连字符 /etc/dictionaries-common，sites-available
-文件命名vdpau_wrapper.cfg
+文件命名vdpau_wrapper.cfg，也有加点的  vmlinuz.old
