@@ -10,3 +10,6 @@
 
 引用变量： 虽然不是命名规范，但始终给变量加双引号（如 "$VAR"）是 Linux 脚本编写中最核心的安全规范。
 文件夹用 - 而不是 _
+
+linux 系统文件夹命名 纯小写，或者加连字符 /etc/dictionaries-common，sites-available
+文件命名vdpau_wrapper.cfg
