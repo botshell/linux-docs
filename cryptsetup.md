@@ -126,3 +126,30 @@ done
 
 # cryptsetup luksKillSlot "$target" 2  # delete slot 2
 ```
+
+## During installation
+Ctrl + Alt + F1 see logs
+不要选择“全盘自动分区”，而是选择**“手动分区”
+必要时 使用 ZRAM (内存压缩)
+```
+modprobe zram
+# 这里的 512M 是指压缩后的虚拟交换空间大小
+echo 512M > /sys/block/zram0/disksize
+mkswap /dev/zram0
+swapon /dev/zram0
+```
+```
+modprobe dm_crypt
+# lsmod | grep dm_crypt
+
+echo -n "你的密码" | cryptsetup luksOpen "/dev/vdb6" crypt_lvm --key-file -
+echo -n "你的密码" | cryptsetup open --type luks "/dev/vdb6" crypt_lvm --key-file -
+cryptsetup isLuks /dev/vdb6 && echo "这是 LUKS 设备"
+cryptsetup luksDump /dev/vdb6
+
+/etc/crypttab
+/etc/fstab
+
+ls -l /dev/mapper/control
+udevadm trigger
+```
