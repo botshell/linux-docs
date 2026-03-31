@@ -1,1 +1,3 @@
 lscpu
+
+top
