@@ -7,6 +7,7 @@ Add swap memory when necessary
 > Create a swapfile
 ```sh
 dd if=/dev/zero of=/swapfile bs=128M count=8
+fallocate -l 2G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile  # temporarily swapon, auto swapoff when reboot
